@@ -1,0 +1,231 @@
+/* Reset básico */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Paleta de cores */
+:root {
+	--bg-color: #1B1F3B;       /* Fundo geral */
+	--text-color: #E4E4E4;     /* Cor clara para texto */
+	--accent-color: #00E5FF;   /* Cor de destaque */
+	--header-bg: #14182F;      /* Fundo do cabeçalho */
+	--footer-bg: #2C2F40;      /* Fundo do rodapé */
+	--border-color: #0099AA;   /* Borda/link escuro */
+}
+
+/* Layout geral */
+body {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-family: 'Segoe UI', sans-serif;
+	padding: 20px;
+}
+
+/* Página central */
+.page-wrapper {
+	width: 80%;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+/* Seção de introdução */
+.intro {
+	height: 550px;
+}
+
+/* Oculta o design-archives */
+#design-archives {
+	display: none;
+}
+
+/* Títulos */
+h1 {
+	color: var(--accent-color);
+	font-size: 1.8rem;
+	text-align: right;
+	padding-left: 1em;
+}
+
+h2 {
+	color: var(--accent-color);
+	font-size: 1.4rem;
+	text-align: right;
+}
+
+h3 {
+	color: var(--accent-color);
+	font-size: 1.2rem;
+	text-align: right;
+}
+
+/* Parágrafos */
+p {
+	margin-bottom: 15px;
+	text-indent: 1em;
+}
+
+/* Textos da seção principal com espaçamento */
+.main.supporting p {
+	line-height: 1.5;
+}
+
+/* Links */
+a {
+	color: var(--accent-color);
+	text-decoration: none;
+}
+
+a:hover {
+	color: #00b8cc;
+	text-decoration: underline;
+}
+
+/* Abreviações */
+abbr {
+	font-variant: small-caps;
+}
+
+/* Cabeçalho */
+header {
+	background-color: var(--header-bg);
+	color: var(--text-color);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 40px;
+	border-radius: 6px;
+	margin-bottom: 20px;
+}
+
+/* Container genérico */
+.container {
+	background-color: #222;
+	padding: 20px;
+	border-radius: 8px;
+}
+
+/* Botões */
+button {
+	background-color: var(--accent-color);
+	color: var(--bg-color);
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+button:hover {
+	background-color: #00b8cc;
+}
+
+/* Menus laterais */
+.design-selection ul,
+.zen-resources ul {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+}
+
+.design-selection li,
+.zen-resources li {
+	margin-bottom: 1em;
+}
+
+.design-selection a,
+.zen-resources a {
+	color: var(--accent-color);
+	font-weight: bold;
+}
+
+/* Rodapé */
+footer {
+	background-color: var(--footer-bg);
+	color: var(--text-color);
+	margin: 4%;
+	padding: 20px;
+	text-align: center;
+	border-radius: 6px;
+    /* 1. Aplique o flexbox no rodapé */
+    display: flex;
+    justify-content: center; /* Centralizados */
+    align-items: center; /* Centralizados verticalmente (se necessário) */
+    flex-wrap: wrap; /* Tratar o caso de quebra de linha */
+}
+
+/* Links no rodapé como caixas */
+footer a {
+	display: inline-block;
+	border: 2px solid var(--border-color);
+	padding: 0.5em 1em;
+	margin: 0.5em; /* Mantém o espaçamento original do layout */
+	color: var(--border-color);
+	background-color: transparent;
+	border-radius: 4px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+    /* 1. Defina um mesmo tamanho para os links. */
+    flex: 1 1 auto; /* Permite que os itens cresçam/encolham e tenham uma base */
+    min-width: 120px; /* Um tamanho mínimo razoável para os links */
+    max-width: 180px; /* Um tamanho máximo para que não fiquem muito grandes */
+}
+
+footer a:hover {
+	background-color: var(--border-color);
+	color: var(--footer-bg);
+}
+
+/* Posicionamento - O código original não tinha essas regras,
+   portanto, elas não são incluídas para manter estritamente o original + Flexbox */
+
+/* Flexbox - Exercícios */
+
+/* 2. Seção de benefícios */
+.benefits {
+    display: flex;
+    /* 4. Inclua uma linha no topo e embaixo das seções de benefícios */
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0; /* Adiciona padding para as bordas não colarem no conteúdo */
+}
+
+.benefits .main { /* O texto */
+    /* 2. O texto deve ocupar aproximadamente 70% da largura */
+    flex: 7;
+}
+
+.benefits .sidebar { /* O título */
+    /* 2. O título deve ocupar aproximadamente 30% da largura. */
+    flex: 3;
+    display: flex; /* Para controlar o alinhamento do título */
+    align-items: center; /* 2. O título deve ficar centralizado verticalmente. */
+    justify-content: flex-end; /* Alinhar o título à direita */
+}
+
+/* 3. Seção de participação */
+.participation {
+    display: flex;
+    /* 4. Inclua uma linha no topo e embaixo das seções de participação,
+       e remova a ocorrência de borda duplicada entre as duas seções.
+       A borda superior da participação seria a mesma linha que a borda inferior dos benefícios.
+       Para evitar a "duplicação" visual da linha entre benefícios e participação,
+       não adicionamos border-top aqui, confiando na border-bottom de .benefits.
+    */
+    border-bottom: 1px solid var(--border-color);
+    padding: 20px 0; /* Adiciona padding para as bordas não colarem no conteúdo */
+}
+
+.participation .main {
+    /* 3. Cada item deve ocupar 50% do espaço disponível. */
+    flex: 1;
+}
+
+.participation .sidebar {
+    /* 3. Cada item deve ocupar 50% do espaço disponível. */
+    flex: 1;
+    display: flex; /* Para controlar o alinhamento do título */
+    align-items: center; /* 3. O título deverá ficar centralizado verticalmente. */
+}
